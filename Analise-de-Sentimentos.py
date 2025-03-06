@@ -7,6 +7,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from wordcloud import WordCloud
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from joblib import load
+import nltk
+nltk.download("vader_lexicon")
 
 
 
@@ -19,7 +21,7 @@ st.set_page_config(page_title="Análise de Sentimentos", layout="wide")
 #Função de carregamento do modelo e dados
 @st.cache_resource
 def load_and_process_data():
-    data = pd.read_csv("Twitter_data.csv")
+    data = pd.read_csv("Twitter_Data.csv")
     
     #Tratamento dos dados
     data.dropna(inplace=True)
